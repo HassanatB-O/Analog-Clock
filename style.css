@@ -1,0 +1,121 @@
+body
+{
+    background-color: skyblue;
+    text-align: center;
+}
+span
+{
+    color: red;
+    font-size: 30px;
+    font-family: cursive;
+    padding: 5px;
+}
+svg
+{
+    margin-top: 200px;
+    margin-left: 700px;
+    padding: 0;
+    font-family: cursive;
+    font-size: 14px;
+    background-color: gray;
+}
+.analog-clock
+{
+    width: 140px;
+    height: 140px;
+}
+#clock-face
+{
+    stroke: white;
+    stroke-width: 2px;
+    fill: darksalmon;
+}
+#h-hand, #m-hand, #s-hand, #s-tail
+{
+    stroke: red;
+    stroke-linecap: square;
+}
+#h-hand
+{
+    stroke-width: 3px;
+}
+#m-hand
+{
+    stroke-width: 2px;
+}
+#s-hand
+{
+    stroke-width: 1px;
+}
+.time-text
+{
+    display: flex;
+    margin-left: 665px;
+    margin-top: 20px;
+}
+footer
+{
+    margin-top: 450px;
+    margin-left: 35px;
+}
+
+@media only screen and (max-width: 1024px)
+{
+    span
+    {
+        color: red;
+        font-size: 30px;
+        font-family: cursive;
+        padding: 5px;
+        margin-top: 20px;
+    }
+    svg
+    {
+        margin-top: 200px;
+        margin-left: 440px;
+        padding: 0;
+        font-family: cursive;
+        font-size: 14px;
+        background-color: gray;
+    }
+    .time-text
+    {       
+    display: flex;
+    margin-left: 410px;
+    }
+    footer
+    {
+        text-align: center;
+        margin-top: 350px;
+    }
+}
+@media only screen and (max-width: 480px)
+{
+    span
+    {
+        color: red;
+        font-size: 30px;
+        font-family: cursive;
+        padding: 5px;
+        margin-top: 20px;
+    }
+    svg
+    {
+        margin-top: 200px;
+        margin-left: 110px;
+        padding: 0;
+        font-family: cursive;
+        font-size: 14px;
+        background-color: gray;
+    }
+    .time-text
+    {       
+    display: flex;
+    margin-left: 70px;
+    }
+    footer
+    {
+        text-align: center;
+        margin-top: 350px;
+    }
+}
