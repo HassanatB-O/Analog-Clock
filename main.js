@@ -1,55 +1,38 @@
-function clock()
-{
-    //To get the angle
-    var d, h, m, s;
-    d = new Date;
-    h = 30 * ((d.getHours() % 12) + d.getMinutes() / 60) ;
-    m = 6 * d.getMinutes();
-    s = 6 * d.getSeconds();
-    
-    //For the hands to move
-    setAttr('h-hand', h);
-    setAttr('m-hand', m);
-    setAttr('s-hand', s);
-    setAttr('s-tail', s+180);
+setInterval (setClock, 1000)
 
-    //To display time
-    h = d.getHours();
-    m = d.getMinutes();
-    s = d.getSeconds();
+const hourHand = document.querySelector('[data-hour-hand]')
+const minuteHand = document.querySelector('[data-minute-hand]')
+const secondHand = document.querySelector('[data-second-hand]')
 
-    if (h >= 12)
-    {
-        setText('suffix', 'PM');
-    }
-    else
-    {
-        setText('suffix', 'AM');
-    }
+function setClock()
+ {
+     //To get the date
+     const currentDate = new Date()
+     //To get the seconds
+     const secondsRatio = currentDate.getSeconds() / 60
+     //to get each minute
+     const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60
+     //to get each hour
+     const hoursRatio = (minutesRatio + currentDate.getHours()) / 12
+     //to set the hand of the clock with the seconds, minutes and hours got.
+     setRotation(secondHand, secondsRatio)
+     setRotation(minuteHand, minutesRatio)
+     setRotation(hourHand, hoursRatio)
+ }
 
-    if (h != 12)
-    {
-        h %= 12;
-    }
-
-    setText('sec', s);
-    setText('min', m);
-    setText('hr', h);
-
-    //For every second
-    setTimeout(clock, 1000);
-};
-function setAttr(id, val)
-{
-    var v = 'rotate(' + val + ' 70, 70)';
-    document.getElementById(id).setAttribute('transform', v );
-};
-function setText(id, val)
-{
-    if (val < 10)
-    {
-        val = '0' + val;
-    }
-    document.getElementById(id).innerHTML = val;
-};
-window.onload = clock;
+ function setRotation (element, rotationRatio)
+ {
+     element.style.setProperty('--rotation', rotationRatio * 360)
+ }
+ function display_c()
+ {
+     var refresh = 1000;
+     myTime = setTimeout('display_ct()', refresh)
+ }
+ function display_ct()
+ {
+     var x = new Date()
+     document.getElementById('ct').innerHTML = x;
+     display_c();
+ }
+setClock();
