@@ -1,121 +1,152 @@
+*,*::after, *::before
+{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
 body
 {
-    background-color: skyblue;
-    text-align: center;
+    background: linear-gradient(to right, #a59696, gainsboro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
 }
 span
 {
-    color: red;
-    font-size: 30px;
-    font-family: cursive;
-    padding: 5px;
-}
-svg
-{
-    margin-top: 200px;
-    margin-left: 700px;
-    padding: 0;
-    font-family: cursive;
-    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 7px;
+    padding: 7px;
     background-color: gray;
+    color: black;
+    font-weight: bold;
+    margin-top: 50px;
+    font-size: 20px;
 }
-.analog-clock
+.clock
 {
-    width: 140px;
-    height: 140px;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 50%;
+    border: 2px solid white;
+    position: relative;
 }
-#clock-face
+.clock .number
 {
-    stroke: white;
-    stroke-width: 2px;
-    fill: darksalmon;
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 25px;
 }
-#h-hand, #m-hand, #s-hand, #s-tail
+.clock .number1
 {
-    stroke: red;
-    stroke-linecap: square;
+    --rotation: 30deg;
 }
-#h-hand
+.clock .number2
 {
-    stroke-width: 3px;
+    --rotation: 60deg;
 }
-#m-hand
+.clock .number3
 {
-    stroke-width: 2px;
+    --rotation: 90deg;
 }
-#s-hand
+.clock .number4
 {
-    stroke-width: 1px;
+    --rotation: 120deg;
 }
-.time-text
+.clock .number5
 {
-    display: flex;
-    margin-left: 665px;
-    margin-top: 20px;
+    --rotation: 150deg;
 }
-footer
+.clock .number6
 {
-    margin-top: 450px;
-    margin-left: 35px;
+    --rotation: 180deg;
 }
-
+.clock .number7
+{
+    --rotation: 210deg;
+}
+.clock .number8
+{
+    --rotation: 240deg;
+}
+.clock .number9
+{
+    --rotation: 270deg;
+}
+.clock .number10
+{
+    --rotation: 300deg;
+}
+.clock .number11
+{
+    --rotation: 330deg;
+}
+.clock .hand
+{
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border: 1px solid white;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px; 
+    z-index: 10;
+    background-color: black;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg)); 
+}
+.clock::after
+{
+    content: '';
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 48%;
+    left: 47.6%;
+    transform: translate(-50% -50%);
+    border-radius: 50%;
+}
+.clock .hand.second
+{
+    width: 3px;
+    height: 45%;
+    background-color: red;
+}
+.clock .hand.minute
+{
+    width: 7px;
+    height: 40%;
+    background-color: black;
+}
+.clock .hand.hour
+{
+    width: 10px;
+    height: 35%;
+    background-color: black;
+}
 @media only screen and (max-width: 1024px)
 {
+    body
+    {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .clock
+    {
+        max-width: 1000px;
+    }
     span
     {
-        color: red;
-        font-size: 30px;
-        font-family: cursive;
-        padding: 5px;
-        margin-top: 20px;
-    }
-    svg
-    {
-        margin-top: 200px;
-        margin-left: 440px;
-        padding: 0;
-        font-family: cursive;
-        font-size: 14px;
-        background-color: gray;
-    }
-    .time-text
-    {       
-    display: flex;
-    margin-left: 410px;
-    }
-    footer
-    {
-        text-align: center;
-        margin-top: 350px;
-    }
-}
-@media only screen and (max-width: 480px)
-{
-    span
-    {
-        color: red;
-        font-size: 30px;
-        font-family: cursive;
-        padding: 5px;
-        margin-top: 20px;
-    }
-    svg
-    {
-        margin-top: 200px;
-        margin-left: 110px;
-        padding: 0;
-        font-family: cursive;
-        font-size: 14px;
-        background-color: gray;
-    }
-    .time-text
-    {       
-    display: flex;
-    margin-left: 70px;
-    }
-    footer
-    {
-        text-align: center;
-        margin-top: 350px;
+        margin-top: 50px;
+        width: 300px;
     }
 }
